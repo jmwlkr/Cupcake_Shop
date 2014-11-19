@@ -1,0 +1,14 @@
+<h1>List of Shops</h1>
+<% if @shops.empty? %>
+  <strong>There are no current shops</strong>
+<% else %>
+  <ul>
+  <% @shops.each do |shop| %>
+    <li>
+      <a href=<%= "/shops/#{ shop.id }" %>>
+        <%= shop.name %>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = "Congrats you successfully Registered"
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/users/#{ @user.id }"
     else
       flash[:alert] = @user.errors.full_messages
       redirect_to "/users/new"
