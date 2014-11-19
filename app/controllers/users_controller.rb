@@ -6,10 +6,6 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
 
-    if @user.nil?
-      flash[:alert] = "User not Found"
-      redirect_to "/"
-    end
   end
 
   def new
@@ -46,9 +42,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    @user.posts.destroy_all # TODO REFACTOR
-    @user.comments.destroy_all # TODO REFACTOR
-    @user.shops.destroy_all # TODO REFACTOR
     @user.destroy
   end
 
