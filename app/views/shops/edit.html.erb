@@ -1,2 +1,10 @@
-<h1>Shops#edit</h1>
-<p>Find me in app/views/shops/edit.html.erb</p>
+<h3>Edit Shop</h3>
+
+<%= form_for @shop do |f| %>
+  <%= f.text_field :name, placeholder: "Shop Name" %>
+  <%= f.text_field :address, placeholder: "Address" %>
+  <%= f.text_field :city, placeholder: "City" %>
+  <%= f.text_field :state, placeholder: "State" %>
+  <%= f.text_field :zip, placeholder: "Zipcode" %>
+  <%= f.submit %>
+<% end %>

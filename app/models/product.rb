@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
   validates :shop_id, :price, :name, presence: true
 
-  belongs_to :shop, dependent: :destroy
+  belongs_to :shop
 
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 end

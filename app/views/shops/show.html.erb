@@ -1,5 +1,19 @@
 <h3><%= @shop.name %></h3>
+
+<% if @current_user && @owner.id == @current_user.id %>
+  <a href=<%= "/shops/#{ @shop.id }/edit" %>>Edit</a>
+  <br>
+  <a href=<%= "/shops/#{ @shop.id }/products/new" %>>Create Cupcake</a>
+  <br>
+  <%= link_to ("DELETE SHOP"),"/shops/#{ @shop.id }", method: :delete %>
+
+<% end %>
+
+<br>
 <small><%= "#{ @shop.user.fname } #{ @shop.user.lname }" %></small>
 <br>
 <span><%= @shop.address %></span>
+<br>
 <span><%= @shop.city %>, <%= @shop.state %> <%= @shop.zip %></span>
+
+<%= render partial: "./products/index", locals: { products: @products } %>

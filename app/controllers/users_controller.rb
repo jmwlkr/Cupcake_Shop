@@ -4,8 +4,9 @@ class UsersController < ApplicationController
   end
 
   def show
+    current_user
     @user = User.find(params[:id])
-
+    @shops = @user.shops
   end
 
   def new
@@ -16,6 +17,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
+      session[:cart] = []
       flash[:notice] = "Congrats you successfully Registered"
       redirect_to "/users/#{ @user.id }"
     else

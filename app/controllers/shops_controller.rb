@@ -4,7 +4,10 @@ class ShopsController < ApplicationController
   end
 
   def show
+    current_user
     @shop = Shop.find(params[:id])
+    @products = @shop.products
+    @owner = @shop.user
   end
 
   def new
@@ -42,7 +45,9 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:id])
+    user = @shop.user
     @shop.destroy
+    redirect_to "/users/#{ user.id }"
   end
 
   private

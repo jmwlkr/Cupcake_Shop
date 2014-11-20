@@ -1,0 +1,14 @@
+<h4>List of Shops</h4>
+<% if shops.empty? %>
+  <strong>There are no current shops</strong>
+<% else %>
+  <ul>
+  <% shops.each do |shop| %>
+    <li>
+      <a href=<%= "/shops/#{ shop.id }" %>>
+        <%= shop.name %>
+      </a>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

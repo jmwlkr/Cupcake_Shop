@@ -3,6 +3,6 @@ class Shop < ActiveRecord::Base
   validates :zip, length: {is: 5}
   validates :state, length: {is: 2}
 
-  belongs_to :user, dependent: :destroy
-  has_many :products
+  belongs_to :user
+  has_many :products, dependent: :destroy
 end

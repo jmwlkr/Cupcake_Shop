@@ -1,0 +1,11 @@
+<% if @products.empty? %>
+  <strong>Cart is Currently Empty</strong>
+<% else %>
+  <ul>
+    <% @products.each do |product| %>
+      <li>
+        <%= product.name %>:   <em><%= product.price %></em>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

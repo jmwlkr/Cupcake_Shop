@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if @current_user %>
+    <%= link_to ("LOGOUT"),"/sessions",method: :delete %>
+  <% end %>
+
   <% if flash[:notice] %>
     <em><%= flash[:notice] %></em>
   <% end %>

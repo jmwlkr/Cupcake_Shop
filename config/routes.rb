@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   root "home#index" # get "/" => "home#index"
   resources :users
   resources :shops do
-    resources :products
-  end 
+    resources :products do
+      resources :comments, except: [:update, :edit]
+    end
+  end
+  post "/cart/products/:id" => "cart#add_to_cart"
+  get "/cart" => "cart#show_cart"
+
   resources :sessions, only: [:new, :create]
   delete "/sessions" => "sessions#destroy"
 

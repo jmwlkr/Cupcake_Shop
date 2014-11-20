@@ -1,0 +1,12 @@
+<h4>Products</h4>
+<% if products.empty? %>
+  There are no Products
+<% else %>
+  <ul>
+  <% products.each do |product| %>
+    <li>
+      <a href=<%= "/shops/#{ @shop.id }/products/#{ product.id }" %>><%= product.name %></a>
+    </li>
+  <% end %>
+  </ul>
+<% end %>

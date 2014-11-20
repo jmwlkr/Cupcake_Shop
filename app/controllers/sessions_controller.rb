@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.password == params[:password]
       session[:user_id] = @user.id
+      session[:cart] = []
       flash[:notice] = "You are now logged in"
       redirect_to "/users/#{ @user.id }"
     else
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:cart] = []
     redirect_to "/sessions/new"
   end
 

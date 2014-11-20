@@ -1,3 +1,16 @@
 <h3><%= @product.name %></h3>
+
+<% if @current_user && @owner.id == @current_user.id %>
+  <%= link_to ("DELETE"), "/shops/#{ @shop.id }/products/#{ @product.id }", method: :delete %>
+  <br>
+  <a href=<%= "/shops/#{ @shop.id }/products/#{ @product.id }/edit" %>>Edit</a>
+<% end %>
+<br>
+<%= link_to ("ADD TO CART"), "/cart/products/#{ @product.id }", method: :post %>
 <em><%= @product.price %></em>
 <p><%= @product.desc %></p>
+<br>
+<a href=<%= "/shops/#{ @shop.id }" %>>Back to Shop</a>
+<%= render partial: "./comments/new",
+           locals: { comment: @comment, shop: @shop, product: @product } %>
+<%= render partial: "./comments/index", locals: { comments: @comments } %>

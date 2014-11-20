@@ -1,1 +1,7 @@
 <h3><%= "#{ @user.fname} #{ @user.lname }" %></h3>
+<a href="/">Home</a>
+<% if @current_user %>
+  <a href="/shops/new">Create Shop</a>
+<% end %>
+
+<%= render partial: "./shops/index", locals: { shops: @shops } %>
