@@ -14,6 +14,5 @@ class CartController < ApplicationController
     session[:cart].each do |id|
       @products << Product.find(id.to_i)
     end
-  
   end
 end

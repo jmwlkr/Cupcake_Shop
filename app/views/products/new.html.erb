@@ -1,7 +1,9 @@
 <h3>Create Products</h3>
-<%= form_for [@shop, @product] do |f| %>
+<%= form_for [@shop, @product],
+            :html => { :multipart => true } do |f| %>
   <%= f.text_field :name, placeholder: "Name" %>
   <%= f.text_area :desc, placeholder: "Description" %>
   <%= f.number_field :price, placeholder: "Price" %>
+  <%= f.file_field :avatar %>
   <%= f.submit %>
 <% end %>
