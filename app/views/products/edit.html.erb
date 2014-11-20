@@ -1,2 +1,7 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h3>Edit Product</h3>
+<%= form_for [@shop, @product] do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :price %>
+  <%= f.text_area :desc %>
+  <%= f.submit %>
+<% end %>

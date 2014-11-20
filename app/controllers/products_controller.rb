@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @shop = Shop.find(params[:shop_id])
+    @products = @shop.products
   end
 
   def show
@@ -8,6 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @shop = Shop.find(params[:shop_id])
     @product = Product.new
   end
 
@@ -25,6 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @shop = Shop.find(params[:shop_id])
     @product = Product.find(params[:id])
   end
 
